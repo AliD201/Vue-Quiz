@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"></script>
+
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -14,4 +17,25 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <css-doodle>
+    :doodle {
+      @grid: 11 / 100vmax;
+      background: #0a0c27;
+      position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    z-index: -1;
+    }
+    --n: calc(
+        @abs(@abs(@row() - 6)
+      + @abs(@col() - 6) - 11) / 11
+    );
+    margin: -10%;
+    transform: rotate(45deg);
+    border: 1px solid;
+    border-color: hsla(
+      calc(var(--n) * 280 + 120), 60%, 68%,
+      var(--n)
+    );
+  </css-doodle>
 </html>
