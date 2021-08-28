@@ -10,13 +10,11 @@
       :totalCorrect="totalCorrect"
       :results="results"></results>
     </transition>
-        <transition name="fade" mode="in-out" appear>
 
     <button type="button" class="reset-btn"
      v-if="questionsAnsweered >= questions.length" 
      @click.prevent="reset"
      >Reset</button>
-         </transition>
 
   </div>
 </template>

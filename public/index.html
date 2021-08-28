@@ -16,26 +16,30 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <css-doodle>
+      :doodle {
+        @grid: 11x11 / 100vmax;
+        background: #0a0c27;
+        position: absolute;
+      top: -10px; left: 0;
+      z-index: -1;
+      overflow: hidden; 
+      }
+  
+      --n: calc(
+          @abs(@abs(@row() - 6)
+        + @abs(@col() - 6) - 11) / 11
+      );
+      margin: -10%;
+      transform: rotate(45deg);
+      border: 1px solid;
+      border-color: hsla(
+        calc(var(--n) * 280 + 120), 60%, 68%,
+        var(--n)
+      );
+     
+    </css-doodle>
   </body>
-  <css-doodle>
-    :doodle {
-      @grid: 11 / 100vmax;
-      background: #0a0c27;
-      position: absolute;
-    top: 0; left: 0;
-    height: 100%;
-    z-index: -1;
-    }
-    --n: calc(
-        @abs(@abs(@row() - 6)
-      + @abs(@col() - 6) - 11) / 11
-    );
-    margin: -10%;
-    transform: rotate(45deg);
-    border: 1px solid;
-    border-color: hsla(
-      calc(var(--n) * 280 + 120), 60%, 68%,
-      var(--n)
-    );
-  </css-doodle>
+ 
 </html>
